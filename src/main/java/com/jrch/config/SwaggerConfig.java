@@ -34,9 +34,9 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("utils")
+                .title("jrch")
                 .description("工具开发文档")
-                .termsOfServiceUrl("http://www.wmh.com")
+                .termsOfServiceUrl("http://www.jrch.com")
                 .version("1.1.0")
                 .build();
     }
