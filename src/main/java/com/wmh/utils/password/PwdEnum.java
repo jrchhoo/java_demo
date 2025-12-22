@@ -1,9 +1,8 @@
 package com.wmh.utils.password;
 
-import com.google.common.collect.Lists;
-
-import java.util.ArrayList;
 import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 /**
  * @program: bill-admin-server
@@ -11,28 +10,24 @@ import java.util.List;
  * @author: Mr.Hou
  * @create: 2021-01-28 23:47
  **/
+@Getter
+@AllArgsConstructor
 public enum PwdEnum {
-    QAZ("1", "!", Lists.newArrayList("q", "a", "z")),
-    WSX("2", "@", Lists.newArrayList("w", "s", "x")),
-    EDC("3", "#", Lists.newArrayList("e", "d", "c")),
-    RFV("4", "$", Lists.newArrayList("r", "f", "v")),
-    TGB("5", "%", Lists.newArrayList("t", "g", "b")),
-    YHN("6", "^", Lists.newArrayList("y", "h", "n")),
-    UJM("7", "&", Lists.newArrayList("u", "j", "m")),
-    IK("8", "*", Lists.newArrayList("i", "k")),
-    OL("9", "(", Lists.newArrayList("o", "l")),
-    P("0", ")", Lists.newArrayList("p"));
+    QAZ("1", "!", List.of("q", "a", "z")),
+    WSX("2", "@", List.of("w", "s", "x")),
+    EDC("3", "#", List.of("e", "d", "c")),
+    RFV("4", "$", List.of("r", "f", "v")),
+    TGB("5", "%", List.of("t", "g", "b")),
+    YHN("6", "^", List.of("y", "h", "n")),
+    UJM("7", "&", List.of("u", "j", "m")),
+    IK("8", "*", List.of("i", "k")),
+    OL("9", "(", List.of("o", "l")),
+    P("0", ")", List.of("p"));
 
 
     private String code;
     private String mark;
     private List<String> alphabet;
-
-    PwdEnum(String code, String mark, ArrayList<String> alphabet) {
-        this.code = code;
-        this.mark = mark;
-        this.alphabet = alphabet;
-    }
 
     public static PwdEnum getEnumFromAlphabet(String alphabet) {
 
@@ -42,17 +37,5 @@ public enum PwdEnum {
             }
         }
         return null;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public String getMark() {
-        return mark;
-    }
-
-    public List<String> getAlphabet() {
-        return alphabet;
     }
 }

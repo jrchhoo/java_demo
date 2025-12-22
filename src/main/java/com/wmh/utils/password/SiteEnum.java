@@ -1,11 +1,16 @@
 package com.wmh.utils.password;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * @program: bill-admin-server
  * @description: 站点对应枚举
  * @author: Mr.Hou
  * @create: 2021-05-20 13:40
  **/
+@Getter
+@AllArgsConstructor
 public enum SiteEnum {
     WECHAT("wechat", "微信"),
     SINA("sina", "新浪微博"),
@@ -31,20 +36,6 @@ public enum SiteEnum {
     ;
 
 
-    public String getCode() {
-        return code;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
     private String code;
     private String description;
-
-
-    SiteEnum(String code, String description) {
-        this.code = code;
-        this.description = description;
-    }
 }
