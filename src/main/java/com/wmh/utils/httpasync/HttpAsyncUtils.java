@@ -11,12 +11,15 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @program: utils
  * @description: 异步Http请求
  * @author: Mr.Hou
  * @create: 2021-09-18 21:11
  **/
+@Slf4j
 public class HttpAsyncUtils {
 
     private static final class MyCallback implements FutureCallback<HttpResponse> {
@@ -24,7 +27,7 @@ public class HttpAsyncUtils {
 
         @Override
         public void failed(final Exception ex) {
-            System.out.println(ex.getLocalizedMessage());
+            log.info(ex.getLocalizedMessage());
         }
 
 
@@ -32,7 +35,7 @@ public class HttpAsyncUtils {
         public void completed(final HttpResponse response) {
 
             try {
-                System.out.println(EntityUtils.toString(response.getEntity()));
+                log.info(EntityUtils.toString(response.getEntity()));
             } catch (ParseException | IOException e) {
                 e.printStackTrace();
             }
@@ -42,7 +45,7 @@ public class HttpAsyncUtils {
 
         @Override
         public void cancelled() {
-            System.out.println("cancelled");
+            log.info("cancelled");
         }
 
     }

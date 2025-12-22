@@ -1,6 +1,7 @@
 package com.wmh.utils.design.prototype;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @program: bill-admin-server
@@ -30,6 +31,7 @@ public class ProtoTypeCitation {
  * 奖状类
  */
 @Data
+@Slf4j
 class Citation implements Cloneable {
     private String name;
     private String info;
@@ -39,15 +41,15 @@ class Citation implements Cloneable {
         this.name = name;
         this.info = info;
         this.college = college;
-        System.out.println("奖状实例化成功");
+        log.info("奖状实例化成功");
     }
 
     public Object clone() throws CloneNotSupportedException {
-        System.out.println("奖状拷贝成功");
+        log.info("奖状拷贝成功");
         return (Citation) super.clone();
     }
 
     public void display(){
-        System.out.println(name + info + college);
+        log.info(name + info + college);
     }
 }

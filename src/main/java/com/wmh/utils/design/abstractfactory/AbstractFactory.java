@@ -1,6 +1,7 @@
 package com.wmh.utils.design.abstractfactory;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @program: bill-admin-server
@@ -39,19 +40,21 @@ abstract class BenzCar{
 /**
  * 具体产品
  */
+@Slf4j
 class BenzSportCar extends BenzCar{
 
     @Override
     public void drive() {
-        System.out.println("---BenzSportCar---");
+        log.info("---BenzSportCar---");
     }
 }
 
+@Slf4j
 class BenzBusinessCar extends BenzCar{
 
     @Override
     public void drive() {
-        System.out.println("---BenzBusinessCar---");
+        log.info("---BenzBusinessCar---");
     }
 }
 
@@ -67,19 +70,21 @@ abstract class BmwCar{
 /**
  * 具体产品
  */
+@Slf4j
 class BmwSportCar extends BmwCar{
 
     @Override
     public void drive() {
-        System.out.println("---BmwSportCar---");
+        log.info("---BmwSportCar---");
     }
 }
 
+@Slf4j
 class BmwBusinessCar extends BmwCar{
 
     @Override
     public void drive() {
-        System.out.println("---BmwBusinessCar---");
+        log.info("---BmwBusinessCar---");
     }
 }
 

@@ -1,5 +1,7 @@
 package com.wmh.utils.design.proxy;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @program: bill-admin-server
  * @description: 代理模式2
@@ -25,15 +27,17 @@ interface SmsService{
 /**
  * 实现发送短信的接口
  */
+@Slf4j
 class SmsServiceImpl implements SmsService{
 
     @Override
     public String send(String message) {
-        System.out.println("send message: " + message);
+        log.info("send message: " + message);
         return message;
     }
 }
 
+@Slf4j
 class SmsProxy implements SmsService{
 
     private final SmsService smsService;
@@ -44,9 +48,9 @@ class SmsProxy implements SmsService{
 
     @Override
     public String send(String message) {
-        System.out.println("发送之前的方法");
+        log.info("发送之前的方法");
         smsService.send(message);
-        System.out.println("发送之后的方法");
+        log.info("发送之后的方法");
         return null;
     }
 }

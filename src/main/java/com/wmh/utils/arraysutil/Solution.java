@@ -4,12 +4,15 @@ package com.wmh.utils.arraysutil;
 import java.util.LinkedList;
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @program: utils
  * @description: 全排列算法
  * @author: Mr.Hou
  * @create: 2021-11-23 18:40
  **/
+@Slf4j
 public class Solution {
     //public static void allPermutation(String str){
     //    if(str == null || str.length() == 0) {
@@ -71,7 +74,7 @@ public class Solution {
 
     public static  void arrage(List<String> resultList,char[] c, int start, int length) {
         if (start == length) {
-            System.out.println(String.valueOf(c));
+            log.info(String.valueOf(c));
             resultList.add(String.valueOf(c));
         } else {
             for (int i = start; i < length; i++) {
@@ -101,7 +104,7 @@ public class Solution {
 //        allPermutation("123");
 
         String str = "678";
-        System.out.println(arrage(str).length);
+        log.info(String.valueOf(arrage(str).length));
     }
 
 }

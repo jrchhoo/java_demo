@@ -1,5 +1,7 @@
 package com.wmh.utils.design.adapter;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @program: bill-admin-server
  * @description: 适配器模式
@@ -13,18 +15,20 @@ public interface Motor {
 /**
  * 适配者1：电能驱动
  */
+@Slf4j
 class ElectricMotor{
     public  void electricDrive(){
-        System.out.println("电能---驱动汽车");
+        log.info("电能---驱动汽车");
     }
 }
 
 /**
  * 适配者1：光能驱动
  */
+@Slf4j
 class OpticalMotor{
     public  void electricDrive(){
-        System.out.println("光能---驱动汽车");
+        log.info("光能---驱动汽车");
     }
 }
 

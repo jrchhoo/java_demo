@@ -9,7 +9,10 @@ import lombok.Data;
  * @create: 2020-12-15 14:44
  **/
 
+import lombok.extern.slf4j.Slf4j;
+
 @Data
+@Slf4j
 public class Product {
 
     private String partA;
@@ -17,6 +20,6 @@ public class Product {
     private String partC;
 
     public void show(){
-        System.out.println("产品生产出来了");
+        log.info("产品生产出来了");
     }
 }

@@ -8,12 +8,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @program: utils
  * @description: 递归测试
  * @author: Mr.Hou
  * @create: 2021-10-31 00:07
  **/
+@Slf4j
 public class ResursionUtil {
 
     public static void getSubDeptIdList( ) {
@@ -22,12 +25,12 @@ public class ResursionUtil {
         // 获取子部门ID
         List<Long> subIdList = queryDetpIdList(1L);
         getDeptTreeList(subIdList, deptIdList);
-        System.out.println("子id"+ JSON.toJSONString(deptIdList));
+        log.info("子id"+ JSON.toJSONString(deptIdList));
     }
 
 
     private static void getDeptTreeList(List<Long> subIdList, List<Long> deptIdList) {
-        System.out.println("1111111111" + deptIdList);
+        log.info("1111111111" + deptIdList);
         for (Long deptId : subIdList) {
             List<Long> list = queryDetpIdList(deptId);
             if (list != null && !list.isEmpty()) {
@@ -35,7 +38,7 @@ public class ResursionUtil {
             }
             deptIdList.add(deptId);
         }
-        System.out.println("22222222222" + subIdList);
+        log.info("22222222222" + subIdList);
     }
 
 
@@ -57,14 +60,14 @@ public class ResursionUtil {
     public static List<Long> queryList(List<Long> childrenList, Long l) {
         List<Long> list = queryDetpIdList(l);
         if (list != null && !list.isEmpty()) {
-            System.out.println("11111111111"+list);
+            log.info("11111111111"+list);
             for (Long temp: list) {
-                System.out.println("===" + temp);
+                log.info("===" + temp);
                 childrenList.add(temp);
                 queryList(childrenList, temp);
             }
         }
-        System.out.println("222222222222"+childrenList);
+        log.info("222222222222"+childrenList);
         return childrenList;
     }
 
@@ -76,7 +79,7 @@ public class ResursionUtil {
 
     public static void main(String[] args) {
         //ResursionUtil.getSubDeptIdList();
-        System.out.println(ResursionUtil.queryList(new ArrayList<Long>(), 1L));
+        log.info(ResursionUtil.queryList(new ArrayList<Long>(), 1L).toString());
     }
 
 

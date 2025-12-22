@@ -6,6 +6,8 @@ import net.sf.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.Method;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @program: bill-admin-server
  * @description: CGLIB代理实例
@@ -24,21 +26,24 @@ public class CGLIBProxyDemo {
 }
 
 
+@Slf4j
 class AliSmsService {
     public String send(String message) {
-        System.out.println("send message:" + message);
+        log.info("send message:" + message);
         return message;
     }
 }
 
+@Slf4j
 class TencentSmsService {
     public String send(String message) {
-        System.out.println("send message:" + message);
+        log.info("send message:" + message);
         return message;
     }
 }
 
 
+@Slf4j
 class DebugMethodInteceptor implements MethodInterceptor{
     /**
      * All generated proxied methods call this method instead of the original method.
@@ -57,9 +62,9 @@ class DebugMethodInteceptor implements MethodInterceptor{
     @Override
     public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
 
-        System.out.println("之前: " + method.getName());
+        log.info("之前: " + method.getName());
         Object object = proxy.invokeSuper(obj, args);
-        System.out.println("之后: " + method.getName());
+        log.info("之后: " + method.getName());
         return object;
     }
 }

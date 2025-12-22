@@ -1,11 +1,15 @@
 package com.wmh.utils.design.single;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @program: bill-admin-server
  * @description: 单例模式应用demo
  * @author: Mr.Hou
  * @create: 2020-12-04 09:44
+ * @create: 2020-12-04 09:44
  **/
+@Slf4j
 public class LazySingletonDemo {
     public static void main(String[] args) {
         President president1 = President.getInstance();
@@ -15,32 +19,33 @@ public class LazySingletonDemo {
         president2.getName();
 
         if (president1 == president2) {
-            System.out.println("这是同一个人");
+            log.info("这是同一个人");
         } else {
-            System.out.println("不同的人");
+            log.info("不同的人");
         }
     }
 
 }
 
+@Slf4j
 class President{
 
     private static volatile President instance = null;
 
     private President(){
-        System.out.println("产生一个总统");
+        log.info("产生一个总统");
     }
 
     public static synchronized President getInstance(){
         if (instance == null) {
             instance = new President();
         } else {
-            System.out.println("已经有一个总统，不能产生新总统");
+            log.info("已经有一个总统，不能产生新总统");
         }
         return instance;
     }
 
     public void getName(){
-        System.out.println("我是美国总统：川建国");
+        log.info("我是美国总统：川建国");
     }
 }

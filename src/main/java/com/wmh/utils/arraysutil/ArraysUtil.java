@@ -2,12 +2,15 @@ package com.wmh.utils.arraysutil;
 
 import java.util.Arrays;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @program: utils
  * @description: 数组
  * @author: Mr.Hou
  * @create: 2021-10-08 15:17
  **/
+@Slf4j
 public class ArraysUtil {
 
     public static void compareContain(String str1,String str2){
@@ -17,9 +20,9 @@ public class ArraysUtil {
         String[] temp = str2.split("\\|");
         for (int i = 0; i < temp.length; i++) {
             String[] detail = temp[i].split(",");
-            System.out.println("size:" +temp.length + "  value:" + temp[i]);
+            log.info("size:" +temp.length + "  value:" + temp[i]);
             if (!Arrays.asList(number).containsAll(Arrays.asList(detail))){
-                System.out.println(temp[i]);
+                log.info(temp[i]);
             }
         }
 
@@ -39,8 +42,8 @@ public class ArraysUtil {
 
         String nu = "20211011-122";
         String nu1 = "20211011";
-        System.out.println(nu.split("-")[0]);
-        System.out.println(nu1.split("-")[0]);
+        log.info(nu.split("-")[0]);
+        log.info(nu1.split("-")[0]);
 
     }
 }

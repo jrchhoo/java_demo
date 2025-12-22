@@ -4,12 +4,15 @@ import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.util.*;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @program: utils
  * @description: 比较大小
  * @author: Mr.Hou
  * @create: 2021-11-01 15:08
  **/
+@Slf4j
 public class CompareUtil<T> {
 
     public static <T> void sort(List<T> targetList, final String sortField,
@@ -32,7 +35,7 @@ public class CompareUtil<T> {
                         retVal = method2.invoke(((T) obj2), null).toString().compareTo(method1.invoke(((T) obj1), null).toString());
                     }
                 } catch (Exception e) {
-                    System.out.println("List<" + ((T) obj1).getClass().getName() + ">排序异常！");
+                    log.info("List<" + ((T) obj1).getClass().getName() + ">排序异常！");
                     e.printStackTrace();
                 }
                 return retVal;
@@ -56,13 +59,14 @@ public class CompareUtil<T> {
         dogList.add(dog4);
         dogList.add(dog5);
         dogList.add(dog6);
-        System.out.println("排序前:" + dogList.toString());
+        dogList.add(dog6);
+        log.info("排序前:" + dogList.toString());
 
-        System.out.println(dogList.subList(5, 5));
+        log.info(dogList.subList(5, 5).toString());
 
         CompareUtil.sort(dogList, "testDecimal", true);
         for (Dog dog : dogList) {
-            System.out.println(dog.toString());
+            log.info(dog.toString());
         }
 
     }

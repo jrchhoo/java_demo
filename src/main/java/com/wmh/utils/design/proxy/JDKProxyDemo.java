@@ -1,6 +1,7 @@
 package com.wmh.utils.design.proxy;
 
 import java.lang.reflect.InvocationHandler;
+import lombok.extern.slf4j.Slf4j;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -30,11 +31,12 @@ interface SmsService1{
 /**
  * 实现发送短信的接口
  */
+@Slf4j
 class SmsServiceImpl1 implements SmsService1{
 
     @Override
     public String send(String message) {
-        System.out.println("send message: " + message);
+        log.info("send message: " + message);
         return message;
     }
 }
@@ -42,6 +44,7 @@ class SmsServiceImpl1 implements SmsService1{
 /**
  * JDK动态代理类
  */
+@Slf4j
 class DebugInvocationHandler implements InvocationHandler {
 
     private final Object target;
@@ -52,9 +55,9 @@ class DebugInvocationHandler implements InvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws InvocationTargetException, IllegalAccessException {
-        System.out.println("执行之前: " + method.getName());
+        log.info("执行之前: " + method.getName());
         Object result = method.invoke(target, args);
-        System.out.println("执行之后: " + method.getName());
+        log.info("执行之后: " + method.getName());
         return result;
     }
 }

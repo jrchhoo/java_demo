@@ -3,12 +3,15 @@ package com.wmh.utils.password;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @program: bill-admin-server
  * @description: 生成密码程序
  * @author: Mr.Hou
  * @create: 2021-01-28 23:55
  **/
+@Slf4j
 public class GeneratePwd {
 
     public static void generatePwd(SiteEnum siteEnum) {
@@ -41,7 +44,7 @@ public class GeneratePwd {
             numberBuffer.append(pwdEnum.getCode());
         }
         pwdNumber.append(shortPrefix).append(numberBuffer).append(".").append(alphabetBuffer).append(markBuffer);
-        System.out.println("======" + siteEnum.getDescription() + "====== 密码：" + pwdNumber.toString());
+        log.info("======" + siteEnum.getDescription() + "====== 密码：" + pwdNumber.toString());
     }
 
 

@@ -1,5 +1,7 @@
 package com.wmh.utils.design.prototype;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @program: bill-admin-server
  * @description: 原型模式
@@ -9,20 +11,21 @@ package com.wmh.utils.design.prototype;
  * @author: Mr.Hou
  * @create: 2020-12-04 10:06
  **/
+@Slf4j
 public class RealizeType implements Cloneable {
 
     RealizeType(){
-        System.out.println("创建原型类");
+        log.info("创建原型类");
     }
 
     public Object clone() throws CloneNotSupportedException {
-        System.out.println("具体原型复制成功");
+        log.info("具体原型复制成功");
         return (RealizeType) super.clone();
     }
 
     public static void main(String[] args) throws CloneNotSupportedException {
         RealizeType type1 = new RealizeType();
         RealizeType type2 = (RealizeType) type1.clone();
-        System.out.println("type1 == type2:" + (type1 == type2));
+        log.info("type1 == type2:" + (type1 == type2));
     }
 }

@@ -1,6 +1,7 @@
 package com.wmh.utils.design.factorymethod;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @program: bill-admin-server
@@ -23,19 +24,21 @@ abstract class Car{
 /**
  * 具体产品
  */
+@Slf4j
 class Benz extends Car{
 
     @Override
     public void drive() {
-        System.out.println(this.getName() + "GO");
+        log.info(this.getName() + "GO");
     }
 }
 
+@Slf4j
 class Bmw extends Car{
 
     @Override
     public void drive() {
-        System.out.println(this.getName() + "GO");
+        log.info(this.getName() + "GO");
     }
 }
 

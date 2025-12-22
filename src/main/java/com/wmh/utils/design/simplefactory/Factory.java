@@ -1,5 +1,7 @@
 package com.wmh.utils.design.simplefactory;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @program: bill-admin-server
  * @description: 简单工厂模式实例
@@ -14,27 +16,30 @@ public interface Factory {
     void product();
 }
 
+@Slf4j
 class DrinkFactory implements Factory{
 
     @Override
     public void product() {
-        System.out.println("饮料工厂生产饮料");
+        log.info("饮料工厂生产饮料");
     }
 }
 
+@Slf4j
 class ClothFactory implements Factory{
 
     @Override
     public void product() {
-        System.out.println("服装工厂生产服装");
+        log.info("服装工厂生产服装");
     }
 }
 
+@Slf4j
 class CarFactory implements Factory{
 
     @Override
     public void product() {
-        System.out.println("车厂生产车");
+        log.info("车厂生产车");
     }
 }
 
