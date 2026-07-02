@@ -1,13 +1,12 @@
-package com.wmh.utils;
+package com.jrch;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UtilsApplicationTests {
+class JrchApplicationTests {
 
     @Test
     void contextLoads() {
     }
-
 }

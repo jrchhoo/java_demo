@@ -14,7 +14,7 @@ spring:
 
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.wmh.utils.demo.entity
+  type-aliases-package: com.jrch.entity
   configuration:
     map-underscore-to-camel-case: true
 
@@ -22,4 +22,4 @@ mybatis-plus:
 
 logging:
   level:
-    com.wmhou.admin.mapper: DEBUG
+    com.jrch.mapper: DEBUG
